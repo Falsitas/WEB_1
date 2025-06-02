@@ -10,6 +10,10 @@ var setBoard = function() {
 
     var board = [];
     for(var i = 0; i < HEIGHT; i++) {
+        line = [];
+        for(var j = 0; j < WIDTH; j++) {
+            line.push(0);
+        }
         board.push(line);
     }
 
@@ -49,14 +53,20 @@ var setBoard = function() {
         else {
             continue;
         }
-    }    
+    }
+    return board;
 }
 
 var printBoard = function(board) {
     for(var i = 0; i < HEIGHT; i++) {
         for(var j = 0; j < WIDTH; j++) {
-            document.write(board[i][j] + " ");
+            if(board[i][j] < 0) {
+                document.writeln("*");
+            }
+            else {
+                document.writeln(board[i][j]);
+            }
         }
-        document.writeln();
+        document.write("<br>");
     }
 }
